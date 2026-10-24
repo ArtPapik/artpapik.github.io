@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;600;800&family=Caveat:wght@600;700&display=swap');
+
+:root {
+  --pink: #ff8fab;
+  --pink-dark: #e85d75;
+  --pink-bg: #fff0f6;
+  --rose: #fbcfe8;
+  --cream: #fff7f9;
+  --text: #5a2e4a;
+  --text-muted: #8a5a78;
+  --shadow: 0 20px 40px -10px rgba(232, 93, 117, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Commissioner', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #ffe6f2 0%, #fff0f6 100%);
+  color: var(--text);
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: env(safe-area-inset-top, 0) 16px env(safe-area-inset-bottom, 20px) 16px;
+  animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bg-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #ff9aa2;
+  opacity: 0.35;
+  filter: blur(4px);
+  border-radius: 50% 50% 0 0;
+  transform: rotate(-45deg);
+  animation: float 6s ease-in-out infinite;
+}
+
+.h1 { top: 10%; left: 8%; animation-delay: 0s; }
+.h2 { top: 20%; right: 12%; animation-delay: 2s; width: 44px; height: 44px; }
+.h3 { bottom: 25%; left: 18%; animation-delay: 4s; opacity: 0.2; }
+.h4 { bottom: 12%; right: 20%; animation-delay: 1s; width: 24px; height: 24px; }
+.h5 { top: 40%; left: 50%; animation-delay: 3s; opacity: 0.25; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-45deg); }
+  50% { transform: translateY(-24px) rotate(-45deg); }
+}
+
+.card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 28px;
+  padding: 24px 20px 32px;
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.card-surprise {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.badge {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  color: var(--pink-dark);
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.1rem;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.question {
+  font-family: 'Caveat', cursive;
+  font-size: 2.2rem;
+  color: var(--pink-dark);
+  margin-bottom: 26px;
+  font-weight: 700;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+h3.reasons-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: var(--pink-dark);
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.reasons {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.reasons li {
+  font-size: 1rem;
+  color: var(--text-muted);
+  padding: 10px 0;
+  border-bottom: 1px dashed #f4c2d7;
+}
+
+.reasons li:last-child {
+  border-bottom: none;
+}
+
+.heart-big {
+  font-size: 3rem;
+  margin: 14px 0;
+  animation: heartbeat 1.6s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25%, 75% { transform: scale(1.18); }
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.btn {
+  flex: 1;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s, box-shadow 0.2s;
+  position: relative;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-yes {
+  background: var(--pink-dark);
+  color: #fff;
+  box-shadow: 0 8px 16px -4px rgba(232, 93, 117, 0.45);
+}
+
+.btn-yes:hover {
+  filter: brightness(1.05);
+}
+
+.btn-no {
+  background: #fff;
+  color: var(--text-muted);
+  border: 2px solid #f4c2d7;
+}
+
+.btn-no:hover {
+  border-color: var(--pink-dark);
+  color: var(--pink-dark);
+}
+
+.btn-heart {
+  background: var(--pink);
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--pink-dark);
+  border: 2px solid var(--pink-dark);
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: rgba(90, 46, 74, 0.92);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Экран 3 */
+.surprise-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.love-meter {
+  margin: 10px 0 16px;
+  text-align: left;
+}
+
+.meter-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.meter-bar {
+  height: 10px;
+  background: #f4c2d7;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--pink-dark), var(--pink));
+  border-radius: 6px;
+}
+
+.meter-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--pink-dark);
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.floating-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+  content: '💖';
+  font-size: 1.5rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-hearts::after {
+  animation-delay: 1.5s;
+}
+
+/* Adaptive */
+@media (min-width: 480px) {
+  .card { padding: 34px 28px 40px; }
+  .title { font-size: 2.4rem; }
+}

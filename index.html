@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Для Марфы 💖</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Telegram Web App SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="toast" id="toast"></div>
+
+  <!-- Экран 1: главный вопрос -->
+  <section id="page1" class="page active">
+    <div class="bg-hearts">
+      <div class="heart h1"></div>
+      <div class="heart h2"></div>
+      <div class="heart h3"></div>
+      <div class="heart h4"></div>
+      <div class="heart h5"></div>
+    </div>
+
+    <div class="card">
+      <div class="badge">Мини-апп для самой любимой</div>
+      <h1 class="title">Привет, моё солнышко ☀️</h1>
+      <p class="question" id="question">Ты меня любишь?</p>
+
+      <div class="buttons">
+        <button id="btnYes" class="btn btn-yes">Да ❤️</button>
+        <button id="btnNo" class="btn btn-no">Нет</button>
+      </div>
+
+      <p class="hint">Кнопка «Нет» немного застенчивая…</p>
+    </div>
+  </section>
+
+  <!-- Экран 2: признание Марфе -->
+  <section id="page2" class="page">
+    <div class="card">
+      <div class="badge">Я знал, что ты скажешь «да» 💖</div>
+      <h2 class="title">Марфа, ты моё счастье</h2>
+      <p class="intro">
+        Ты — самое тёплое, что было в моей жизни. Твоя улыбка, твой взгляд,
+        твоя нежная душа — всё это делает мир лучше просто тем, что ты в нём есть.
+      </p>
+
+      <h3 class="reasons-title">Причины, почему я люблю Марфу:</h3>
+      <ul class="reasons">
+        <li>✨ За твою нежную и искреннюю улыбку</li>
+        <li>🌸 За то, как ты заботишься о близких</li>
+        <li>💬 За твои длинные رسائل и тишину, в которой легко вместе</li>
+        <li>🎨 За твою творческую душу и вкус</li>
+        <li>🍯 За то, что с тобой хочется быть всегда</li>
+      </ul>
+
+      <div class="heart-big">❤️</div>
+
+      <button id="btnNext" class="btn btn-yes" style="margin-top: 16px">
+        Открыть сюрприз 🎁
+      </button>
+    </div>
+  </section>
+
+  <!-- Экран 3: сюрприз / открытка -->
+  <section id="page3" class="page">
+    <div class="card card-surprise">
+      <div class="badge">Маленький сюрприз 🎁</div>
+      <h2 class="title">Марфа, этот мини-апп — для тебя</h2>
+      <p class="surprise-text">
+        Спасибо, что ты есть в моей жизни. Ты делаешь каждый день ярче,
+        а сердце — спокойнее. Хочу, чтобы ты всегда чувствовала себя любимой.
+      </p>
+
+      <div class="love-meter">
+        <div class="meter-label">Насколько я тебя люблю:</div>
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+        <div class="meter-value" id="meterValue">∞ %</div>
+      </div>
+
+      <div class="actions">
+        <button id="btnHeart" class="btn btn-heart">Отправить сердце Марфе 💌</button>
+        <button id="btnRestart" class="btn btn-outline">Начать сначала</button>
+      </div>
+
+      <div class="floating-hearts" id="floatingHearts"></div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
