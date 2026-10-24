@@ -56,19 +56,39 @@
   // Сбрасываем позицию при открытии страницы
   showPage('page1');
 
-  btnYes.addEventListener('click', () => {
+  btnYes.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (tg) tg.HapticFeedback?.impactOccurred?.('light');
     question.textContent = 'Я знал, что ты скажешь «да» 💖';
     setTimeout(() => showPage('page2'), 350);
   });
 
-  // Кнопка «Нет» убегает при наведении и при попытке нажатия
+  // Кнопка «Нет» убегает при наведении (компьютер)
   btnNo.addEventListener('mouseenter', moveBtnNo);
+
+  // На телефонах убегаем ещё до клика, в момент касания
+  btnNo.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    moveBtnNo();
+  });
+
   btnNo.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
     noAttempts++;
+
+    // Чтобы палец не попал в кнопку «Да» после ухода «Нет»
+    btnNo.style.pointerEvents = 'none';
+
     if (tg) tg.HapticFeedback?.impactOccurred?.('heavy');
     moveBtnNo();
+
+    // Возвращаем возможность нажимать через четверть секунды
+    setTimeout(() => {
+      btnNo.style.pointerEvents = 'auto';
+    }, 250);
 
     if (noAttempts === 1) {
       showToast('Она всё равно тебя любит 😉');
